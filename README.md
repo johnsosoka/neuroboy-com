@@ -8,6 +8,7 @@ This repository manages the static website infrastructure for neuroboy.com using
 
 ### Components
 
+- **neuroboy.com**: Apex domain serving production website (S3 + CloudFront)
 - **www.neuroboy.com**: Main production website (S3 + CloudFront)
 - **stage.neuroboy.com**: Staging environment for testing (S3 + CloudFront)
 
@@ -36,6 +37,9 @@ terraform apply
 ### Deploying Website Content
 
 ```bash
+# Deploy to apex domain
+aws s3 sync website/ s3://neuroboy.com/ --profile jscom
+
 # Deploy to www
 aws s3 sync website/ s3://www.neuroboy.com/ --profile jscom
 
@@ -53,7 +57,7 @@ terraform output
 
 ## Website
 
-The `website/` directory contains the static HTML site deployed to both www and stage environments.
+The `website/` directory contains the static HTML site deployed to all environments (apex, www, and stage).
 
 ## Dependencies
 
