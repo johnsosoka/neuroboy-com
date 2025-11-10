@@ -58,8 +58,8 @@ export default function Home() {
           description="Key milestones and achievements throughout his remarkable career and life."
         />
         <NavigationCard
-          href="/projects"
-          title="Projects"
+          href="/work-overview"
+          title="His Work"
           description="Discover the innovative products and companies John helped create and build."
         />
       </section>
