@@ -94,44 +94,61 @@ export default function SailingPage() {
           </div>
         </section>
 
-        {/* Photo Gallery Placeholder */}
+        {/* Photo Gallery */}
         <section>
           <h2 className="text-3xl font-bold mb-6 text-memorial-gray-50">
             Sailing Photos
           </h2>
           <div className="bg-memorial-gray-900 border border-memorial-gray-800 rounded-lg p-8">
             <p className="text-memorial-gray-300 mb-6 leading-relaxed">
-              A collection of photographs from John's sailing adventures will be featured here—
-              images from races at Long Beach Yacht Club, sailing with family and friends,
-              and moments on the water that capture his love for the sport.
+              A collection of photographs from John's sailing adventures—capturing moments
+              on the water that reflect his lifelong passion for the sport.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div
-                  key={i}
-                  className="aspect-video bg-memorial-gray-800 rounded-lg flex items-center justify-center border border-memorial-gray-700"
-                >
-                  <div className="text-center">
-                    <svg
-                      className="w-12 h-12 mx-auto mb-2 text-memorial-gray-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
-                    <p className="text-xs text-memorial-gray-500">Photo {i}</p>
-                  </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Sailing with Dave */}
+              <div className="group">
+                <div className="aspect-[4/3] overflow-hidden rounded-lg border border-memorial-gray-700">
+                  <img
+                    src="/images/personal/sailing-john-captain-with-dave.jpg"
+                    alt="John at the helm with Dave"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
-              ))}
+                <p className="text-sm text-memorial-gray-400 mt-2 text-center">
+                  John at the helm with Dave
+                </p>
+              </div>
+
+              {/* Sailing the Dinghy */}
+              <div className="group">
+                <div className="aspect-[4/3] overflow-hidden rounded-lg border border-memorial-gray-700">
+                  <img
+                    src="/images/personal/sailing-john-ding.jpg"
+                    alt="John sailing his dinghy"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <p className="text-sm text-memorial-gray-400 mt-2 text-center">
+                  John sailing his dinghy in Idaho
+                </p>
+              </div>
+
+              {/* Windsurfing with Friends */}
+              <div className="group">
+                <div className="aspect-[4/3] overflow-hidden rounded-lg border border-memorial-gray-700">
+                  <img
+                    src="/images/personal/john-friends-windsurfing.jpeg"
+                    alt="John and friends windsurfing"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <p className="text-sm text-memorial-gray-400 mt-2 text-center">
+                  John and friends windsurfing
+                </p>
+              </div>
             </div>
             <p className="text-sm text-memorial-gray-500 mt-6 text-center italic">
-              Photos from sailing adventures, races, and time on the water
+              More photos from John's sailing adventures will be added as they are collected from family and friends
             </p>
           </div>
         </section>

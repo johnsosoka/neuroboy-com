@@ -13,7 +13,7 @@ export default function Home() {
           1953 - 2021
         </p>
         <p className="text-xl text-memorial-accent-blue font-medium mb-8">
-          Pioneer • Technologist • Mentor • Neuroboy
+          Futurist • Technologist • Inventor • Creative
         </p>
         <div className="max-w-3xl mx-auto text-lg text-memorial-gray-300 leading-relaxed mb-12">
           <p>

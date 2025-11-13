@@ -38,6 +38,24 @@ export default function Biography() {
             John III and Emily. The family made their home in Belmont Shore, Long Beach, California,
             before eventually relocating to Eagle, Idaho.
           </p>
+
+          <div className="grid md:grid-cols-2 gap-6 my-6">
+            <div className="rounded-lg overflow-hidden border border-memorial-gray-700">
+              <img
+                src="/images/personal/john-with-family.jpg"
+                alt="John with his family"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="rounded-lg overflow-hidden border border-memorial-gray-700">
+              <img
+                src="/images/personal/john-his-irish-wolfhound.jpeg"
+                alt="John with his Irish Wolfhound"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
           <p>
             Colleagues and friends remember John for his warm, collaborative spirit and his wonderful
             way with babies and children—a natural extension of his passion for creating toys and
@@ -152,6 +170,30 @@ export default function Biography() {
               of Pleo, an autonomous robotic baby Camarasaurus dinosaur that would become one of the most
               sophisticated consumer robots of its era.
             </p>
+
+            <div className="grid md:grid-cols-2 gap-6 my-6">
+              <div className="rounded-lg overflow-hidden border border-memorial-gray-700">
+                <img
+                  src="/images/personal/john-pleo-on-shoulder.jpg"
+                  alt="John with Pleo on his shoulder"
+                  className="w-full h-full object-cover"
+                />
+                <p className="text-sm text-memorial-gray-400 mt-2 text-center px-2">
+                  John with Pleo, the autonomous robotic dinosaur
+                </p>
+              </div>
+              <div className="rounded-lg overflow-hidden border border-memorial-gray-700">
+                <img
+                  src="/images/personal/2010-john-and-caleb-chung.jpeg"
+                  alt="John with Caleb Chung"
+                  className="w-full h-full object-cover"
+                />
+                <p className="text-sm text-memorial-gray-400 mt-2 text-center px-2">
+                  John with Caleb Chung, co-founder of Ugobe
+                </p>
+              </div>
+            </div>
+
             <p className="text-memorial-gray-300 leading-relaxed mb-3">
               <strong className="text-memorial-gray-200">Pleo's Technical Marvel</strong>: Featuring 38
               sensors, 14 motors, over 100 custom-designed gears, and six microprocessors, Pleo exhibited
