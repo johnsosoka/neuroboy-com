@@ -24,7 +24,6 @@ const navItems: NavItem[] = [
     type: 'dropdown',
     label: 'His Life',
     items: [
-      { href: '/biography', label: 'Biography' },
       { href: '/timeline', label: 'Timeline' },
       { href: '/sailing', label: 'Sailing' },
       { href: '/hiking-outdoors', label: 'Hiking & Outdoors'},
@@ -35,21 +34,22 @@ const navItems: NavItem[] = [
     type: 'dropdown',
     label: 'His Work',
     items: [
-      { href: '/work-overview', label: 'Overview' },
+      { href: '/tag', label: 'TAG'},
       { href: '/davidson', label: 'Davidson & Associates' },
       { href: '/neurosmith', label: 'Neurosmith' },
       { href: '/ugobe', label: 'Ugobe' },
-      { href: '/ventures', label: 'Later Ventures' },
-      { href: '/talks', label: 'Talks & Presentations' },
+
     ],
   },
   {
     type: 'dropdown',
-    label: 'Gallery',
+    label: 'Showcase',
     items: [
-      { href: '/gallery/products', label: 'Products' },
-      { href: '/gallery/photos', label: 'Photos' },
+      { href: '/gallery/products', label: 'Product Gallery' },
+      // { href: '/gallery/photos', label: 'Photos' },
       { href: '/artifacts', label: 'Artifacts Exhibit' },
+      { href: '/talks', label: 'Talks & Presentations' },
+      { href: '/press', label: 'Press & Awards' },
     ],
   },
   {

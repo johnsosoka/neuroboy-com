@@ -5,9 +5,12 @@ export default function SailingPage() {
         Sailing
       </h1>
       <p className="text-xl text-memorial-gray-400 mb-12 max-w-3xl">
-        Beyond his work in technology and robotics, John was an avid sailor who found peace,
-        challenge, and joy on the water. From ocean sailing with his uncle to competitive racing
-        at Long Beach Yacht Club, sailing was a lifelong passion.
+        Beyond his groundbreaking work in technology and robotics, John was an accomplished sailor
+        who found something essential on the water—a place where strategy met instinct, where careful
+        planning danced with spontaneous adaptation, and where the complexities of modern life gave way
+        to the elemental simplicity of wind, water, and sail. From learning the ropes with his uncle
+        on <em>Gracie</em> to racing high-performance dinghies and competing in the Long Beach racing
+        circuit, sailing wasn't just a hobby—it was a lifelong passion that shaped how he saw the world.
       </p>
 
       {/* Hero Image */}
@@ -28,20 +31,46 @@ export default function SailingPage() {
         {/* Early Years */}
         <section className="border-l-4 border-memorial-accent-blue pl-6">
           <h2 className="text-3xl font-bold mb-6 text-memorial-accent-blue">
-            Early Years: Learning on the Ocean
+            Early Years: Learning on the Ocean with Uncle John
           </h2>
           <div className="text-lg text-memorial-gray-300 leading-relaxed space-y-4">
             <p>
               John's love for sailing began early in life, learning to sail on the ocean with his
-              uncle, also named John. These formative experiences on the water taught him not just
-              the technical skills of seamanship, but also the values of patience, respect for
-              nature, and the importance of careful planning that would serve him throughout his life.
+              uncle, <strong>John Howell</strong>. Uncle John was more than just a teacher—he was a
+              mentor who opened up a world of adventure on the water. Together, they sailed aboard
+              a boat called <em>Gracie</em>, where young John learned not just the technical skills
+              of seamanship, but also the values of patience, respect for nature, and the importance
+              of careful planning that would serve him throughout his life.
             </p>
+
+            <div className="my-6">
+              <div className="overflow-hidden rounded-lg border-2 border-memorial-gray-700">
+                <img
+                  src="/images/sailing/gracie.jpg"
+                  alt="Painting of Gracie, Uncle John Howell's wooden yawl"
+                  className="w-full h-auto"
+                />
+              </div>
+              <p className="text-sm text-memorial-gray-400 mt-2 text-center italic">
+                <strong>GRACIE</strong> — A wooden yawl built in 1955 by Hinckley Co. in Southwest Harbor, Maine.<br />
+                36' OAL × 9' Beam × 5' Draft. Owned, operated & skippered by John Howell.
+              </p>
+            </div>
+
             <p>
-              Sailing was a family tradition. John's mother grew up on a lake in Pennsylvania,
-              where she too learned to sail. This maritime heritage connected generations of the
-              family through shared experiences on the water, creating bonds that transcended the
-              everyday and connected them to something larger.
+              Those early days on <em>Gracie</em> with Uncle John instilled a deep appreciation for
+              the ocean and the art of sailing. The lessons learned went beyond handling lines and
+              reading the wind—they were about understanding the rhythm of the sea, respecting its
+              power, and finding joy in the challenge of working with natural forces.
+            </p>
+
+            <p>
+              Sailing was a family tradition that ran deep. John's mother grew up on a lake in
+              Pennsylvania, where she too learned to sail. This maritime heritage connected
+              generations of the family through shared experiences on the water, creating bonds
+              that transcended the everyday and connected them to something larger. From Pennsylvania
+              lakes to ocean sailing with Uncle John, the water was where the Sosoka family found
+              both adventure and connection.
             </p>
           </div>
         </section>
@@ -53,32 +82,173 @@ export default function SailingPage() {
           </h2>
           <div className="text-lg text-memorial-gray-300 leading-relaxed space-y-4">
             <p>
-              During his years in Long Beach, California, John became a regular competitor in the
-              Long Beach Yacht Club's "Wet Wednesday" racing series. Every Wednesday, he would take
-              to the water to compete against fellow sailors in what became not just a sporting
-              event, but a community of like-minded enthusiasts.
+              During his years in Long Beach, California, John became a dedicated presence in the
+              Long Beach Yacht Club's legendary "Wet Wednesday" racing series. Week after week, he'd
+              leave the dock as the afternoon sun began its descent, joining a fleet of competitive
+              sailors for evening races that became a rhythm in his life. What started as sport evolved
+              into something richer—a community of sailors who shared the same drive for excellence,
+              the same love of the challenge, and the same appreciation for those perfect moments when
+              wind, tactics, and crew work came together in seamless harmony.
             </p>
             <p>
-              The competitive racing environment appealed to the same qualities that made John
-              successful in technology: attention to detail, strategic thinking, quick adaptation
-              to changing conditions, and the ability to optimize performance under pressure. On the
-              water, as in his work, John approached challenges with intelligence, preparation, and
-              a collaborative spirit.
+              The competitive racing environment brought out the same qualities that made John
+              successful in technology: meticulous attention to detail, strategic thinking several
+              moves ahead, lightning-quick adaptation to shifting conditions, and the drive to optimize
+              performance under pressure. But where his technology work dealt with circuits and code,
+              racing demanded reading the wind, anticipating competitors' moves, and making split-second
+              decisions with real consequences. On the water, as in his career, John approached every
+              challenge with intelligence, thorough preparation, and a collaborative spirit that made
+              him both a formidable competitor and a valued crew member.
             </p>
 
-            {/* Race Stats Placeholder */}
+            {/* Catalina 30 Race Schedule - 2002 Season */}
             <div className="bg-memorial-gray-900 border border-memorial-gray-800 rounded-lg p-6 my-6">
               <h3 className="text-xl font-semibold text-memorial-gray-200 mb-4">
-                Race Statistics
+                Cuckoo's Nest: 2002 Racing Season
               </h3>
               <p className="text-memorial-gray-400 mb-4 text-sm">
-                Detailed race results and statistics from Long Beach Yacht Club competitions
-                will be added here.
+                John sailed his family's Catalina 30, the <em>Cuckoo's Nest</em>, in competitive racing
+                throughout the 2002 season at Long Beach Yacht Club and beyond.
               </p>
-              <div className="bg-memorial-gray-800/50 rounded p-4 text-center text-memorial-gray-500 text-sm">
-                Race statistics coming soon
+
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-memorial-gray-700">
+                      <th className="text-left py-2 px-3 text-memorial-gray-300 font-semibold">Date</th>
+                      <th className="text-left py-2 px-3 text-memorial-gray-300 font-semibold">Race</th>
+                      <th className="text-left py-2 px-3 text-memorial-gray-300 font-semibold">Club</th>
+                      <th className="text-left py-2 px-3 text-memorial-gray-300 font-semibold">Result</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-memorial-gray-400">
+                    <tr className="border-b border-memorial-gray-800">
+                      <td className="py-2 px-3">8/7/02</td>
+                      <td className="py-2 px-3">Wet Wednesday Series 3 - Race 1</td>
+                      <td className="py-2 px-3">LBYC</td>
+                      <td className="py-2 px-3">—</td>
+                    </tr>
+                    <tr className="border-b border-memorial-gray-800">
+                      <td className="py-2 px-3">8/14/02</td>
+                      <td className="py-2 px-3">Wet Wednesday Series 3 - Race 2</td>
+                      <td className="py-2 px-3">LBYC</td>
+                      <td className="py-2 px-3">—</td>
+                    </tr>
+                    <tr className="border-b border-memorial-gray-800">
+                      <td className="py-2 px-3">8/17/02</td>
+                      <td className="py-2 px-3">Catalina 30 Nationals (2 races)</td>
+                      <td className="py-2 px-3">LSF</td>
+                      <td className="py-2 px-3">—</td>
+                    </tr>
+                    <tr className="bg-memorial-accent-purple/10 border-b border-memorial-accent-purple/30">
+                      <td className="py-2 px-3 font-medium text-memorial-gray-200">8/18/02</td>
+                      <td className="py-2 px-3 font-medium text-memorial-gray-200">Catalina 30 Nationals (1 race)</td>
+                      <td className="py-2 px-3 font-medium text-memorial-gray-200">LSF</td>
+                      <td className="py-2 px-3 font-semibold text-memorial-accent-purple">4th of 6</td>
+                    </tr>
+                    <tr className="border-b border-memorial-gray-800">
+                      <td className="py-2 px-3">8/21/02</td>
+                      <td className="py-2 px-3">Wet Wednesday Series 3 - Race 3</td>
+                      <td className="py-2 px-3">LBYC</td>
+                      <td className="py-2 px-3">—</td>
+                    </tr>
+                    <tr className="border-b border-memorial-gray-800">
+                      <td className="py-2 px-3">8/28/02</td>
+                      <td className="py-2 px-3">Wet Wednesday Series 3 - Race 4</td>
+                      <td className="py-2 px-3">LBYC</td>
+                      <td className="py-2 px-3">—</td>
+                    </tr>
+                    <tr className="border-b border-memorial-gray-800">
+                      <td className="py-2 px-3">9/4/02</td>
+                      <td className="py-2 px-3">Wet Wednesday Series 3 - Race 5</td>
+                      <td className="py-2 px-3">LBYC</td>
+                      <td className="py-2 px-3">—</td>
+                    </tr>
+                    <tr className="border-b border-memorial-gray-800">
+                      <td className="py-2 px-3">9/14/02</td>
+                      <td className="py-2 px-3">LSF Fall Club Race - Interclub #7</td>
+                      <td className="py-2 px-3">LSF</td>
+                      <td className="py-2 px-3">—</td>
+                    </tr>
+                    <tr className="border-b border-memorial-gray-800">
+                      <td className="py-2 px-3">9/21/02</td>
+                      <td className="py-2 px-3">Night Point Fermin Race</td>
+                      <td className="py-2 px-3">SLBYC</td>
+                      <td className="py-2 px-3">—</td>
+                    </tr>
+                    <tr className="border-b border-memorial-gray-800">
+                      <td className="py-2 px-3">10/19/02</td>
+                      <td className="py-2 px-3">Columbus Day Race - Interclub #8</td>
+                      <td className="py-2 px-3">SLBYC</td>
+                      <td className="py-2 px-3">—</td>
+                    </tr>
+                    <tr className="border-b border-memorial-gray-800">
+                      <td className="py-2 px-3">11/9/02</td>
+                      <td className="py-2 px-3">Turkey Trot Race - Interclub #9</td>
+                      <td className="py-2 px-3">SYC</td>
+                      <td className="py-2 px-3">—</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
+
+              <div className="mt-4 flex items-start gap-2">
+                <div className="aspect-[4/3] w-48 overflow-hidden rounded-lg border border-memorial-gray-700 flex-shrink-0">
+                  <img
+                    src="/images/sailing/w_cuckoo_finish.jpg"
+                    alt="Cuckoo's Nest finishing a race"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-sm text-memorial-gray-400 italic flex-1">
+                  The <em>Cuckoo's Nest</em> finishing an early race, a moment captured during
+                  the 2002 season when John and his family competed regularly in the Southern
+                  California racing circuit.
+                </p>
+              </div>
+
+              <p className="text-xs text-memorial-gray-500 mt-4">
+                Club Abbreviations: LBYC (Long Beach Yacht Club), LSF (Lido Sailing Foundation),
+                SLBYC (Seal Beach Yacht Club), SYC (South Coast Corinthian Yacht Club)
+              </p>
             </div>
+          </div>
+        </section>
+
+        {/* 505 Class Racing */}
+        <section className="border-l-4 border-memorial-accent-blue pl-6">
+          <h2 className="text-3xl font-bold mb-6 text-memorial-accent-blue">
+            The 505: Racing on the Edge
+          </h2>
+          <div className="text-lg text-memorial-gray-300 leading-relaxed space-y-4">
+            <p>
+              Among the various boats John sailed over the years, the <strong>505 class</strong> held
+              a special place in his heart. The 505 is a high-performance racing dinghy known for being
+              incredibly racey and maneuverable—a demanding boat that rewards skill, quick reflexes, and
+              an intimate understanding of wind and water. It's the kind of boat that doesn't forgive
+              mistakes but offers an unmatched thrill when sailed well.
+            </p>
+            <p>
+              John loved the 505 for exactly these qualities. Where larger boats might be more forgiving,
+              the 505 demanded constant attention and delivered immediate feedback. Every adjustment to the
+              sails, every shift in weight, every tactical decision played out instantly on the water. It was
+              sailing at its most pure and exhilarating—a direct conversation between sailor, boat, and the
+              elements.
+            </p>
+            <p>
+              In a testament to both his skill and adventurous spirit, John once sailed a 505 from
+              <strong> Belmont Shore to Catalina Island and back</strong>—a significant ocean passage that's
+              unusual for a boat of that size. The 505, at just 16.5 feet long, is primarily designed for
+              inland and protected waters racing, not open ocean voyages. Making that crossing demonstrated
+              not just technical proficiency, but also careful planning, weather sense, and the kind of
+              calculated risk-taking that defined John's approach to challenges both on the water and in life.
+            </p>
+            <p>
+              This journey to Catalina spoke to something essential about John's character: he didn't just
+              participate in sailing—he pushed boundaries, tested limits, and found new ways to experience
+              the sport he loved. The 505 wasn't just a boat; it was a platform for exploration, competition,
+              and the pure joy of mastering a demanding craft.
+            </p>
           </div>
         </section>
 
@@ -89,21 +259,29 @@ export default function SailingPage() {
           </h2>
           <div className="text-lg text-memorial-gray-300 leading-relaxed space-y-4">
             <p>
-              After relocating to Eagle, Idaho, John adapted his sailing passion to new waters and
-              a new vessel. He transitioned to sailing a much smaller boat, embracing the different
-              challenges and pleasures that came with fresh-water sailing in Idaho's lakes.
+              When John relocated to Eagle, Idaho, he didn't leave sailing behind—he transformed it.
+              Trading ocean swells and salt air for the alpine freshness of Idaho's mountain lakes,
+              he adapted to an entirely different sailing landscape. The boats were smaller, the conditions
+              more variable, the seasons more defined. Where California offered year-round sailing in
+              familiar Pacific winds, Idaho presented new puzzles: gusty mountain thermals, afternoon
+              thunderstorms rolling off the peaks, and a shorter but intensely beautiful sailing season.
             </p>
             <p>
-              True to his competitive spirit, John continued to participate in races even in this
-              new environment. The smaller boat and different conditions required new skills and
-              approaches, but his fundamental love for sailing—the wind, the water, the challenge,
-              and the community—remained constant.
+              True to form, John didn't just sail for pleasure in Idaho—he raced. The competitive spirit
+              that drove him on California's ocean courses found new expression on freshwater lakes,
+              where different winds, different boats, and different tactics created an entirely new set
+              of challenges to master. His decades of ocean racing experience gave him an edge, but the
+              humility of a true sailor meant he approached these new conditions as a student, learning
+              the quirks of mountain lake sailing while sharing his wealth of knowledge with the local
+              sailing community.
             </p>
             <p>
-              Sailing in Idaho represented more than just continuing a hobby in a new place. It was
-              a connection to his past, to family tradition, and to the experiences that had shaped
-              him since youth. Even as his life and location changed, the water remained a place
-              where John could find both challenge and peace.
+              Sailing in Idaho was more than adaptation—it was connection. Each time John rigged his
+              boat and pushed off from the dock, he was reaching back to those early days with Uncle John
+              on <em>Gracie</em>, back to the California racing circuit, back to every lesson learned and
+              every challenge met on the water. The boats changed, the waters changed, the years passed,
+              but sailing remained his constant—a thread woven through every chapter of his life, connecting
+              past to present, family to passion, challenge to joy.
             </p>
           </div>
         </section>
@@ -221,23 +399,31 @@ export default function SailingPage() {
           </h2>
           <div className="text-lg text-memorial-gray-300 leading-relaxed space-y-4">
             <p>
-              Sailing offered John something different from his work in technology and robotics.
-              On the water, success came from reading the wind, understanding the currents,
-              responding to immediate conditions, and working in harmony with natural forces
-              rather than trying to control them.
+              Sailing offered John something fundamentally different from his work in technology and
+              robotics. In the lab or at the workbench, success came from understanding systems,
+              controlling variables, and engineering solutions. On the water, it was almost the inverse:
+              success came from reading forces you couldn't control, adapting to conditions that changed
+              by the minute, and working in harmony with natural forces rather than trying to dominate
+              them. You couldn't debug the wind or reprogram the tide—you could only learn to dance
+              with them.
             </p>
             <p>
-              The skills required for sailing—strategic thinking, quick adaptation, attention to
-              detail, respect for complexity—were the same skills that made John successful in his
-              professional life. But sailing provided something more: a direct, physical connection
-              to nature, a community of fellow enthusiasts, and moments of pure presence when
-              nothing existed but the wind, the water, and the boat.
+              The skills that made John exceptional in both worlds were remarkably similar—strategic
+              thinking, rapid adaptation, meticulous attention to detail, deep respect for complex
+              systems. But sailing added dimensions that circuits and code couldn't provide: the
+              physical immediacy of trimming sails in building winds, the social bond of crew working
+              in perfect sync, the almost meditative state that came during long passages when time
+              dissolved and nothing existed but the rhythm of waves, the feel of the tiller, and the
+              infinite variations of wind and water.
             </p>
             <p>
-              From his early days learning from his uncle to his final races in Idaho, sailing
-              remained a constant thread through John's life—a place where he could be simultaneously
-              competitive and contemplative, challenged and at peace, connected to both family
-              tradition and personal passion.
+              From those first lessons with Uncle John Howell on <em>Gracie</em> to his final races
+              on Idaho's alpine lakes, sailing was the golden thread woven through every chapter of
+              John's life. It was where competition met contemplation, where challenge yielded to
+              peace, where family tradition merged with personal passion. The boats changed, the
+              waters changed, the decades passed—but on the water, John was always fully himself:
+              strategic and spontaneous, ambitious and humble, forever learning, forever connected
+              to something larger than any single race or single lifetime.
             </p>
           </div>
         </section>
