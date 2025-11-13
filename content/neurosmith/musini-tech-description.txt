@@ -1,0 +1,637 @@
+Musini Technical Description – MIDI file and Transition Table
+
+Overview
+Musini is driven by a standard “type 2” MIDI file with two custom controller messages used to specify the locations of sections and ‘beat markers’ within the file. The definition of how to transition between the sections defined in the MIDI file is given by a separate transition table which will be described below.
+
+These two files are interpreted at runtime by the software to create the interactive composition experience for the user. Generally the beat markers delimit an atomic musical element that will play in response to a single step or vibration. As the file plays through beat by beat, section markers will be encountered. When that occurs, a decision of what section to play next will be made by the software according to the transition table. This decision can be unilateral, based on the user’s current tempo, probabilistic or a combination of tempo and probability.
+
+MIDI File
+The MIDI file is composed using standard MIDI editing tools.
+
+Sections
+The MIDI file is created with a number of sections. Each section is delimited by the insertion of a MIDI controller message. These are automatically extracted by proprietary tools that build a lookup table of offsets into the MIDI file for the start of each section. The composer might create 4 sections that can be linked together and played with a big heavy sound like a Tuba with long note to be played when the user is moving very slowly.  The composer might compose another 4 sections that are very light and quick and played when the user is moving quickly. Another section might just be a fun musical effect like a run that can be inserted during a transition from one section to another based on a random, specified probability to add a surprise element now and then.
+
+MIDI Sections throughout the file:
+
+
+Beat Markers
+Within sections there is a notion of what constitutes a logical ‘beat’ in the music. This ‘beat’ is a set of one or more notes that are always played together as a unit. For a simple melody the composer could set the beat to be a single note of the melody. Then, when the user steps, a single note will be played and then Musini will stop and wait for the next vibration. For a more lush, orchestral sound, the composer might make a single logical beat out of several measures of richly chorded and rhythmically interesting music. Then each step by the user would unleash a longer, more complex musical expression before waiting for the next vibration. By changing the spacing of beat markers the composer can greatly influence the musical experience.
+
+Transition Table Format
+The transition file is a text file that is compiled by proprietary  tools and merged with the MIDI file to create a compound file that is read at runtime to create the musical experience.
+
+Header
+A number of global parameters are defined in the header portion of the transition table.  Here we will describe a few of the parameters that are used to control the branching, physics and tempo behavior of Musini
+
+
+This command specifies three important values for the physics system. There is a physics module that processes the stream of vibration data and provides a continuous tempo estimate that used both in warping the tempo of the song and in determining the transitions to take at the end of sections.
+
+drag – this parameter is proportional to velocity (change in tempo) and provides a limit as to how fast tempo changes can occur.
+
+armDebounce – this parameter controls how long Musini must wait after a vibration is detected before it can re-arm the sensor to detect a new vibration. It provides a means of tuning the unit so that the ‘aftershocks’ of a step are not seen a new steps.
+
+mass – this parameter sets the mass value in the physics computation. A lighter mass value will allow the tempo to change more quickly, just a light mass can be manipulated very quickly. A small mass value with make the system very responsive but will seem random and unstable unless input is given in a very controlled manner. A heavy mass will take longer to accelerate and will also take longer to decelerate. This will make the system feel smoother but less responsive. A light setting would work well for musician; a heaver value would generally work better for a small child.
+
+
+The tempo parameter consists of eight bins of non-decreasing tempo values. These bins define ranges of tempos that will be used in the transition table. The implementation of the tempo is that the current tempo is computed and that bit is set in an eight bit byte at runtime. Then a logical and is performed against that value and the tempo bitmask specified in the transition command. If the result is non-zero then that tempo mask is considered active and is used, along with the any probability parameters to, to determine the next section to play. For example a mask might specify the middle three bits and represent any moderate tempo for transition. Or a mask might just specify the very fast or very slow values and transition based on extreme tempi.
+
+Transition Sections
+Each section must have a section entry. Within that section entry must be at least one transition command. At the end of the MIDI data for a section each of the transition commands will be evaluated until a match is found. At that point playing will be redirected to the specified section. If no transition command matches, the section pointer will be reset to the current section and it will play again.
+
+
+The section command creates a mapping between the MIDI sections and the transition commands. The section ID is a number that corresponds to the logical position of this section in the MIDI file. Therefore the fist set of MIDI data which precedes the first section controller message is section 1. The nominalBPM is the user tempo in beats per minute that would cause this section to play at the tempo defined by the MIDI file. Often it will be same as the tempo of the song but it can be modified by the composer. If it was half the tempo of the song as written then the user would only have to tap half as fast to make the song play out at speed ‘a tempo’.
+
+
+Each of the ‘t’ or transition commands defines the possibility of a transition occurring from the current section to the target section. The tempoMask is the bit mask that was described above in the header section. The probability value is a value between 0 and 100 inclusive that, if the tempo mask matches the current tempo, determines which section to transition to. The basic flow is that each transition command is processed in turn. First a check is made to see if the tempo mask matches, if not, execution continues on to the next transition command. If the tempo matches then the probability value is compared against a random value that was generated when the section marker was encountered. If the probability value is less than the cumulative value, the probability is subtracted from the cumulative value and the next command is evaluated.
+
+Excerpts from an actual transition table file
+
+// =========================================================================
+//
+// Oompa9 - transition table
+//
+// This version was edited to allow the transition function to be
+//  more clearly presented
+//
+// =========================================================================
+
+//
+// Some useful defines
+//
+
+// -----<snip>--- define the instrument patches ----------------
+
+//-- define names for the tempo ranges
+#define all 	255		// 0xFF: all tempo buckets
+#define slow 	  3		// 0x02: bucket 1 < tempo < bucket 2
+#define med 	  4		// 0x04: bucket 2 < tempo < bucket 3
+#define run 	  8		// 0x08: bucket 3 < tempo < bucket 4
+#define xrun 	 112		// 0x70: bucket 4 < tempo < bucket 7
+
+#define myBPM 135
+#define slowBPM 70
+#define fastBPM 160
+
+//
+// Now define the global information that will be stored in the header
+//	(section 0)
+//
+	bpm 30 200 135				// BPM record: min, max, nominal
+	physics 4 6 3				// physics - drag, arm_debounce, mass
+	tempo 30 60 80 100 120 140 255 255	// range of tempos definition
+
+//--<snip>-- define bonus and anticipation
+
+//
+//-- 1-8 Intro
+//
+s 1 intro_1 myBPM
+	t all	100 	intro_2
+
+s 2 intro_2 myBPM
+
+	t slow	100 	slow_percussive_1
+	t med	100	slow_intro_3
+	t run	 50	intro_8
+	t run	 50	intro_3
+	t xrun	 100	intro_3
+
+s 3 intro_3 myBPM
+	t all	100	intro_4
+
+s 4 intro_4 myBPM
+	t slow	100	slow_percussive_1		// 27
+	t med	 50	slow_intro_3			// 19
+	t med	 50	fast_or_slow_flex_1		// 50
+	t run	 50	intro_8
+	t run	 50	intro_5
+	t xrun	 100	intro_5
+
+s 5 intro_5 myBPM
+	t all	100	intro_6
+
+s 6 intro_6 myBPM
+	t slow	100	slow_percussive_1
+	t med	 50	slow_intro_3
+	t med	 50	fast_or_slow_flex_3		//52
+	t run	 50	fast_intro_1  			// 9
+	t run	 50	intro_7
+	t xrun	 100	intro_7
+
+s 7 intro_7 myBPM
+	t all	100	 intro_8
+
+s 8 intro_8 myBPM
+	t slow	100	slow_percussive_1
+	t med	 50	slow_intro_3
+	t med	 50	fast_or_slow_flex_1		// 50
+	t run	100	fast_intro_1
+	t xrun	 100	fast_intro_1
+
+//-- 9-12 faster material (variation of intro) tempo range < **** 120-145 BPM
+s 9 fast_intro_1 fastBPM
+	t slow	100	slow_percussive_1
+	t med	 50	slow_intro_3 			// 19
+	t med	 50	fast_or_slow_flex_1		// 50
+	t run	100	fast_intro_2 			// 10
+	t xrun	 50	very_fast_1 			// 31
+	t xrun	 50	fast_intro_2
+
+s 10 fast_intro_2 fastBPM
+	t slow	100	slow_percussive_1
+	t med	 50	slow_intro_3 			// 19
+	t med	 50	fast_intro_3 			// 11
+	t run	 75	fast_intro_3 			// 11
+	t run	 25	very_flex_intro_1		// 42
+	t xrun	 50	very_fast_1 			// 31
+	t xrun	 25	fast_intro_3
+	t xrun	 25	very_flex_intro_3		// 44
+
+s 11 fast_intro_3 fastBPM
+	t slow	100	slow_percussive_1
+	t med	 50	slow_intro_3 			// 19
+	t med	 50	fast_intro_4 			// 12
+	t run	 75	fast_intro_4 			// 12
+	t run	 25	very_flex_intro_3		// 44
+	t xrun	 50	very_fast_1 			// 31
+	t xrun	 50	fast_intro_4
+
+s 12 fast_intro_4 fastBPM
+	t slow	 100	slow_intro_3
+	t med	 50	slow_intro_3
+	t med	 50	fast_intro_1  			// 9
+	t run	 50	fast_intro_1
+	t run	 50	faster_intro_1  		// 13
+	t xrun	 50	faster_intro_1  		// 13
+	t xrun	 50	very_fast_1 			// 31
+
+//-- 13-16 faster material (variation of intro) tempo range < **** 120-145 BPM
+
+s 13 faster_intro_1 fastBPM  	// 13
+	t slow	100	slow_percussive_1
+	t med	 20	slow_intro_3 			// 19
+	t med	 20	slow_intro_1 			// 17
+	t med	 35	faster_intro_2  		// 14
+	t med	 25	very_flex_intro_1		// 42
+	t run	 50	faster_intro_2  		// 14
+	t run	 50	very_flex_intro_1		// 42
+	t xrun	 30	faster_intro_2  		// 14
+	t xrun	 70	very_fast_1 			// 31
+
+s 14 faster_intro_2 fastBPM  	// 14
+	t slow	100	slow_percussive_1
+	t med	 20	slow_intro_3 			// 19
+	t med	 20	slow_intro_1 			// 17
+	t med	 35	faster_intro_3  		// 15
+	t med	 25	very_flex_intro_1		// 42
+	t run	 50	faster_intro_3  		// 15
+	t run	 50	very_flex_intro_1		// 42
+	t xrun	 30	faster_intro_3  		// 15
+	t xrun	 70	very_fast_1 			// 31
+
+s 15 faster_intro_3 fastBPM  	// 15
+	t slow	100	slow_percussive_1		// 27
+	t med	 34	slow_intro_3 			// 19
+	t med	 33	slow_intro_1 			// 17
+	t med	 33	very_flex_intro_5		// 46
+	t run	 50	faster_intro_4  		// 16
+	t run	 50	very_flex_intro_5		/  46
+	t xrun	 30	faster_intro_3  		// 15
+	t xrun	 70	very_fast_1 			// 31
+
+
+s 16 faster_intro_4 fastBPM  	// 16
+	t slow	100	slow_percussive_1
+	t med	 34	slow_intro_3 			// 19
+	t med	 33	slow_intro_1 			// 17
+	t med	 33	very_flex_intro_1		// 42
+	t run	 34	faster_intro_1  		// 13
+	t run	 33	fast_intro_1  			//  9
+	t run	 33	faster_intro_1  		// 13
+	t xrun	 25	fast_intro_1  			//  9
+	t xrun	 75	very_fast_1 			// 31
+
+//-- 17-19 Slow variation of intro. tempo range < **** 55-85 BPM
+
+s 17 slow_intro_1  slowBPM	// 17
+	t slow	100	slow_percussive_1		// 27
+	t med	 34	slow_intro_2			// 18
+	t med	 33	very_flex_intro_1		// 42
+	t med	 33	fast_or_slow_flex_1		// 50
+	t run	 50	faster_intro_1  		// 13
+	t run	 50	intro_3				// 3
+	t xrun	 50	faster_intro_4  		// 16
+	t xrun	 50	very_fast_1 			// 31
+
+s 18 slow_intro_2 slowBPM 		// 18
+	t slow	100	slow_percussive_1		// 27
+	t med	 34	slow_intro_3			// 19
+	t med	 33	very_flex_intro_3		// 44
+	t med	 33	fast_or_slow_flex_3		// 52
+	t run	100	faster_intro_1  		// 13
+	t xrun	 50	faster_intro_4  		// 16
+	t xrun	 50	very_fast_1 			// 31
+
+s 19 slow_intro_3 slowBPM 		// 19
+	t slow	 34	slow_intro_4 			// 20
+	t slow	 66	slow_percussive_1		// 27
+	t med	 34	slow_intro_4 			// 20
+	t med	 33	very_flex_intro_5		// 46
+	t med	 33	fast_or_slow_flex_3		// 52
+	t run	 34	slow_intro_4 			// 20
+	t run	 33	fast_intro_1  			//  9
+	t run	 33	faster_intro_1  		// 13
+	t xrun	 50	flex_intro_1 			// 23
+	t xrun	 50	very_fast_1 			// 31
+
+//-- 20-22 Slow variation of intro. tempo range < **** 55-85 BPM
+
+s 20 slow_intro_4  slowBPM	// 20
+	t slow	 34	slow_intro_5 			// 21
+	t slow	 66	slow_percussive_1		// 27
+	t med	 34	slow_intro_5 			// 21
+	t med	 33	very_flex_intro_3		// 44
+	t med	 33	fast_or_slow_flex_3		// 52
+	t run	 34	slow_intro_5 			// 21
+	t run	 33	fast_intro_1  			//  9
+	t run	 33	faster_intro_1  		// 13
+	t xrun	 50	flex_intro_1 			// 23
+	t xrun	 50	very_fast_1 			// 31
+
+s 21 slow_intro_5  slowBPM	// 21
+	t slow	 34	slow_intro_6 			// 22
+	t slow	 66	slow_percussive_1		// 27
+	t med	 34	slow_intro_6 			// 22
+	t med	 33	very_flex_intro_3		// 44
+	t med	 33	fast_or_slow_flex_3		// 52
+	t run	 34	slow_intro_6 			// 22
+	t run	 33	fast_intro_1  			//  9
+	t run	 33	faster_intro_1  		// 13
+	t xrun	 50	flex_intro_1 			// 23
+	t xrun	 50	very_fast_1 			// 31
+
+s 22 slow_intro_6 slowBPM 	// 22
+	t slow	 34	slow_intro_3 			// 19
+	t slow	 66	slow_percussive_1		// 27
+	t med	 34	slow_intro_3 			// 19
+	t med	 33	very_flex_intro_3		// 44
+	t med	 33	fast_or_slow_flex_3		// 52
+	t run	 34	flex_intro_1 			// 23
+	t run	 33	fast_intro_1  			//  9
+	t run	 33	faster_intro_1  		// 13
+	t xrun	 50	flex_intro_1 			// 23
+	t xrun	 50	very_fast_1 			// 31
+
+//-- 23-26 Yet another variation of intro. Flexible tempo.  Tempo range **** 110-145 BPM
+
+s 23 flex_intro_1  myBPM		// 23
+	t slow	100	slow_percussive_1		// 27
+	t med	 50	flex_intro_2 			// 24
+	t med	 50	slow_intro_3 			// 19
+	t run	100	flex_intro_2 			// 24
+	t xrun	 30	flex_intro_2 			// 24
+	t xrun	 70	very_fast_1 			// 31
+
+s 24 flex_intro_2  myBPM		// 24
+	t slow	100	slow_percussive_1		// 27
+	t med	 50	flex_intro_3 			// 25
+	t med	 50	slow_intro_3 			// 19
+	t run	100	flex_intro_3 			// 25
+	t xrun	 30	flex_intro_3 			// 25
+	t xrun	 70	very_fast_1 			// 31
+
+s 25 flex_intro_3  myBPM	// 25
+	t slow	100	slow_percussive_1		// 27
+	t med	 50	flex_intro_4 			// 26
+	t med	 50	slow_intro_3 			// 19
+	t run	100	flex_intro_4 			// 26
+	t xrun	 30	flex_intro_4 			// 26
+	t xrun	 70	very_fast_1 			// 31
+
+s 26 flex_intro_4  myBPM	// 26
+	t slow	100	slow_percussive_1		// 27
+	t med	 50	flex_intro_1 			// 23
+	t med	 50	slow_intro_3 			// 19
+	t run	 34	fast_intro_1  			//  9
+	t run	 33	faster_intro_1  		// 13
+	t run	 33	flex_intro_1 			// 23
+	t xrun	 20	flex_intro_1 			// 23
+	t xrun	 80	very_fast_1 			// 31
+
+//-- 27 Slow, heavy, percussive material. Tempo range **** less than 55 BPM
+
+s 27 slow_percussive_1 slowBPM 	// 27
+	t slow	100	slow_percussive_1		// 27
+	t med	 34	fast_or_slow_flex_1		// 50
+	t med	 33	slow_intro_3 			// 19
+	t med	 33	intro_1  			//  1
+	t run	 30	fast_intro_1  			//  9
+	t run	 20	slow_intro_1 			// 17
+	t run	 20	faster_intro_1  		// 13
+	t run	 30	faster_intro_3  		// 15
+	t xrun	 30	fast_intro_1  			//  9
+	t xrun	 20	slow_intro_1 			// 17
+	t xrun	 20	faster_intro_1  		// 13
+	t xrun	 30	faster_intro_3  		// 15
+
+//-- 28-30 Ambient sparkles - not yet used. Tempo range ??-?? BPM
+s 28 dummy_28 myBPM
+	t all	 100	intro_1
+s 29 dummy_29 myBPM
+	t all	 100	intro_1
+s 30 dummy_30 myBPM
+	t all	 100	intro_1
+
+//-- 31-34 Very fst material (running). Tempo range < **** 135-155 BPM
+
+s 31 very_fast_1  fastBPM		// 31
+	t slow	 50	slow_intro_3 			// 19
+	t slow	 50	slow_percussive_1		// 27
+	t med	 25	very_fast_2  			// 32
+	t med	 25	fast_intro_1  			//  9
+	t med	 25	slow_intro_1 			// 17
+	t med	 25	slow_intro_3 			// 19
+	t run	 50	very_fast_2  			// 32
+	t run	 25	faster_intro_1  		// 13
+	t run	 25	very_flex_intro_3		// 44
+	t xrun	 75	very_fast_2  			// 32
+	t xrun	 25	very_fast_ascending_1 		// 35
+
+s 32 very_fast_2   fastBPM	// 32
+	t slow	 50	slow_intro_3 			// 19
+	t slow	 50	slow_percussive_1		// 27
+	t med	 25	very_fast_3  			// 33
+	t med	 25	fast_intro_1  			//  9
+	t med	 25	slow_intro_1 			// 17
+	t med	 25	slow_intro_3 			// 19
+	t run	 50	very_fast_3  			// 33
+	t run	 25	faster_intro_1  		// 13
+	t run	 25	very_flex_intro_5		// 46
+	t xrun	 75	very_fast_3  			// 33
+	t xrun	 25	very_fast_ascending_1 		// 35
+
+s 33 very_fast_3   fastBPM		// 33
+	t slow	 50	slow_intro_3 			// 19
+	t slow	 50	slow_percussive_1		// 27
+	t med	 25	very_fast_4  			// 34
+	t med	 25	fast_intro_1  			//  9
+	t med	 25	slow_intro_1 			// 17
+	t med	 25	slow_intro_3 			// 19
+	t run	 50	very_fast_4  			// 34
+	t run	 25	faster_intro_1  		// 13
+	t run	 25	very_flex_intro_7		// 48
+	t xrun	 75	very_fast_4  			// 34
+	t xrun	 25	very_fast_ascending_1 		// 35
+
+s 34 very_fast_4  fastBPM		// 34
+	t slow	 50	slow_percussive_1		// 27
+	t slow	 50	slow_intro_3 			// 19
+	t med	 25	very_fast_1 			// 31
+	t med	 25	fast_intro_1  			//  9
+	t med	 25	slow_intro_1 			// 17
+	t med	 25	slow_intro_3 			// 19
+	t run	 50	very_fast_1 			// 31
+	t run	 50	faster_intro_1  		// 13
+	t xrun	100	very_fast_ascending_1 		// 35
+
+//-- 35-41 Very fast ascending motif. Tempo range **** 155-170 BPM
+
+s 35 very_fast_ascending_1 fastBPM 	// 35
+	t slow	 50	very_fast_ascending_2  		// 36
+	t slow	 50	slow_intro_3			// 19
+	t med	 50	intro_1				// 1
+	t med	 50	very_fast_ascending_2		// 36
+	t run	 50	very_fast_3			// 33
+	t run	 50	very_fast_ascending_2		// 36
+	t xrun	100	very_fast_ascending_2		// 36
+
+s 36 very_fast_ascending_2  fastBPM	// 36
+	t slow	 50	very_fast_ascending_3  		// 37
+	t slow	 50	slow_intro_3			// 19
+	t med	 50	intro_1				// 1
+	t med	 50	very_fast_ascending_3		// 37
+	t run	 40	very_fast_3			// 33
+	t run	 60	very_fast_ascending_3		// 37
+	t xrun	100	very_fast_ascending_3		// 37
+
+
+s 37 very_fast_ascending_3  fastBPM 	// 37
+	t slow	 50	very_fast_ascending_4  		// 37
+	t slow	 50	slow_intro_3			// 19
+	t med	 50	intro_1				// 1
+	t med	 50	very_fast_ascending_4		// 37
+	t run	 40	very_fast_3			// 33
+	t run	 60	very_fast_ascending_4		// 37
+	t xrun	100	very_fast_ascending_4		// 37
+
+
+s 38 very_fast_ascending_4  fastBPM 	// 38
+	t slow	 50	very_fast_ascending_5  		// 38
+	t slow	 50	slow_intro_3			// 19
+	t med	 50	intro_1				// 1
+	t med	 50	very_fast_ascending_5		// 38
+	t run	 35	very_fast_3			// 33
+	t run	 65	very_fast_ascending_5		// 38
+	t xrun	100	very_fast_ascending_5		// 38
+
+
+s 39 very_fast_ascending_5  fastBPM 	// 39
+	t slow	 50	very_fast_ascending_6  		// 39
+	t slow	 50	slow_intro_3			// 19
+	t med	 50	intro_1				// 1
+	t med	 50	very_fast_ascending_6		// 39
+	t run	 30	very_fast_3			// 33
+	t run	 70	very_fast_ascending_6		// 39
+	t xrun	100	very_fast_ascending_6		// 39
+
+
+s 40 very_fast_ascending_6  fastBPM 	// 40
+	t slow	 50	very_fast_ascending_7  		// 41
+	t slow	 50	slow_intro_3			// 19
+	t med	 50	intro_1				// 1
+	t med	 50	very_fast_ascending_7		// 41
+	t run	 20	very_fast_3			// 33
+	t run	 80	very_fast_ascending_7		// 41
+	t xrun	100	very_fast_ascending_7		// 41
+
+
+s 41 very_fast_ascending_7  fastBPM 	// 41
+	t all	100	intro_1				// 1
+
+
+//-- 42-49 Intro Variation 2 Very Flexible Tempo range **** 85-155!
+
+s 42 very_flex_intro_1 myBPM	// 42
+	t slow	100	slow_percussive_1
+	t med	 50	slow_intro_3 			// 19
+	t med	 50	fast_or_slow_flex_1		// 50
+	t run	100	very_flex_intro_2		// 43
+	t xrun	 50	very_fast_1 			// 31
+	t xrun	 50	fast_intro_2
+
+s 43 very_flex_intro_2 myBPM	// 43
+	t slow	100	slow_percussive_1
+	t med	 50	slow_intro_3 			// 19
+	t med	 50	fast_or_slow_flex_1		// 50
+	t run	 75	very_flex_intro_3 		// 44
+	t run	 25	fast_or_slow_flex_3		// 52
+	t xrun	 50	very_fast_1 			// 31
+	t xrun	 50	fast_intro_2
+
+s 44 very_flex_intro_3 myBPM	// 44
+	t slow	100	slow_percussive_1
+	t med	 50	slow_intro_3 			// 19
+	t med	 50	fast_or_slow_flex_1		// 50
+	t run	 75	very_flex_intro_4 		// 45
+	t run	 25	fast_or_slow_flex_4		// 53
+	t xrun	 50	very_fast_1 			// 31
+	t xrun	 50	fast_intro_2
+
+s 45 very_flex_intro_4 myBPM	// 45
+	t slow	100	slow_percussive_1
+	t med	 50	slow_intro_3 			// 19
+	t med	 50	fast_or_slow_flex_1		// 50
+	t run	 75	very_flex_intro_5 		// 46
+	t run	 25	fast_or_slow_flex_3		// 52
+	t xrun	 50	very_fast_1 			// 31
+	t xrun	 50	fast_intro_2
+
+s 46 very_flex_intro_5 myBPM	// 46
+	t slow	100	slow_percussive_1
+	t med	 50	slow_intro_3 			// 19
+	t med	 50	fast_or_slow_flex_1		// 50
+	t run	 75	very_flex_intro_6 		// 47
+	t run	 25	fast_or_slow_flex_3		// 52
+	t xrun	 50	very_fast_1 			// 31
+	t xrun	 50	fast_intro_2
+
+s 47 very_flex_intro_6 myBPM	// 47
+	t slow	100	slow_percussive_1
+	t med	 50	slow_intro_3 			// 19
+	t med	 50	fast_or_slow_flex_1		// 50
+	t run	 75	very_flex_intro_7 		// 48
+	t run	 25	fast_or_slow_flex_3		// 52
+	t xrun	 50	very_fast_1 			// 31
+	t xrun	 50	fast_intro_2
+
+s 48 very_flex_intro_7 myBPM	// 48
+	t slow	100	slow_percussive_1
+	t med	 50	slow_intro_3 			// 19
+	t med	 50	fast_or_slow_flex_1		// 50
+	t run	 75	very_flex_intro_8 		// 49
+	t run	 25	fast_or_slow_flex_3		// 52
+	t xrun	 50	very_fast_1 			// 31
+	t xrun	 50	fast_intro_2
+
+s 49 very_flex_intro_8 myBPM	// 49
+	t slow	100	slow_percussive_1
+	t med	 50	slow_intro_3 			// 19
+	t med	 50	fast_or_slow_flex_1		// 50
+	t run	 75	fast_intro_1			// 9
+	t run	 25	fast_or_slow_flex_3		// 52
+	t xrun	 50	very_fast_1 			// 31
+	t xrun	 50	fast_intro_2			// 10
+
+s 50 fast_or_slow_flex_1 myBPM 	// 50
+	t slow	100	slow_percussive_1		// should be slow_percussive_2
+	t med	 50	fast_or_slow_flex_2		// 51
+	t med	 50	slow_intro_3			// 19
+	t run	 25	fast_or_slow_flex_2		// 51
+	t run	 25	very_flex_intro_5		// 46
+	t run	 25	faster_intro_1			// 13
+	t run	 25	faster_intro_3			// 15
+	t xrun	 50	very_fast_1			// 31
+	t xrun	 25	fast_intro_3			// 11
+	t xrun	 25	fast_or_slow_flex_2		// 51
+
+
+s 51 fast_or_slow_flex_2 myBPM 	// 51
+	t slow	100	slow_percussive_1		// should be slow_percussive_2
+	t med	 50	fast_or_slow_flex_3		// 52
+	t med	 50	slow_intro_3			// 19
+	t run	 25	fast_or_slow_flex_3		// 52
+	t run	 25	very_flex_intro_5		// 46
+	t run	 25	faster_intro_1			// 13
+	t run	 25	faster_intro_3			// 15
+	t xrun	 50	very_fast_1			// 31
+	t xrun	 25	fast_intro_3			// 11
+	t xrun	 25	fast_or_slow_flex_3		// 52
+
+
+s 52 fast_or_slow_flex_3 myBPM 	// 52
+	t slow	100	slow_percussive_1		// should be slow_percussive_2
+	t med	 50	fast_or_slow_flex_4		// 53
+	t med	 50	slow_intro_3			// 19
+	t run	 25	fast_or_slow_flex_4		// 53
+	t run	 25	very_flex_intro_1		// 42
+	t run	 25	faster_intro_1			// 13
+	t run	 25	faster_intro_3			// 15
+	t xrun	 50	very_fast_1			// 31
+	t xrun	 25	fast_intro_3			// 11
+	t xrun	 25	fast_or_slow_flex_4		// 53
+
+
+s 53 fast_or_slow_flex_4 myBPM 	// 53
+	t slow	100	slow_percussive_1		// should be slow_percussive_2
+	t med	 50	fast_or_slow_flex_5		// 54
+	t med	 50	slow_intro_3			// 19
+	t run	 25	fast_or_slow_flex_5		// 54
+	t run	 25	very_flex_intro_5		// 46
+	t run	 25	faster_intro_1			// 13
+	t run	 25	faster_intro_3			// 15
+	t xrun	 50	very_fast_1			// 31
+	t xrun	 25	fast_intro_3			// 11
+	t xrun	 25	fast_or_slow_flex_5		// 54
+
+
+s 54 fast_or_slow_flex_5  myBPM	// 54
+	t slow	100	slow_percussive_1		// should be slow_percussive_2
+	t med	 50	fast_or_slow_flex_6		// 55
+	t med	 50	slow_intro_3			// 19
+	t run	 25	fast_or_slow_flex_6		// 55
+	t run	 25	very_flex_intro_1		// 42
+	t run	 25	faster_intro_1			// 13
+	t run	 25	faster_intro_3			// 15
+	t xrun	 50	very_fast_1			// 31
+	t xrun	 25	fast_intro_3			// 11
+	t xrun	 25	fast_or_slow_flex_6		// 55
+
+
+s 55 fast_or_slow_flex_6  myBPM	// 55
+	t slow	100	slow_percussive_1		// should be slow_percussive_2
+	t med	 50	fast_or_slow_flex_7		// 56
+	t med	 50	slow_intro_3			// 19
+	t run	 25	fast_or_slow_flex_7		// 56
+	t run	 25	very_flex_intro_5		// 46
+	t run	 25	faster_intro_1			// 13
+	t run	 25	faster_intro_3			// 15
+	t xrun	 50	very_fast_1			// 31
+	t xrun	 25	fast_intro_3			// 11
+	t xrun	 25	fast_or_slow_flex_7		// 56
+
+
+s 56 fast_or_slow_flex_7 myBPM	// 56
+	t slow	100	slow_percussive_1		// should be slow_percussive_2
+	t med	 50	fast_or_slow_flex_8		// 57
+	t med	 50	slow_intro_3			// 19
+	t run	 25	fast_or_slow_flex_8		// 57
+	t run	 25	very_flex_intro_5		// 46
+	t run	 25	faster_intro_1			// 13
+	t run	 25	faster_intro_3			// 15
+	t xrun	 50	very_fast_1			// 31
+	t xrun	 25	fast_intro_3			// 11
+	t xrun	 25	fast_or_slow_flex_8		// 57
+
+
+s 57 fast_or_slow_flex_8  myBPM	// 57
+	t slow	100	slow_percussive_1		// should be slow_percussive_2
+	t med	100	slow_intro_3			// 19
+	t run	 34	very_flex_intro_5		// 46
+	t run	 33	faster_intro_1			// 13
+	t run	 33	faster_intro_3			// 15
+	t xrun	 50	very_fast_1			// 31
+	t xrun	 50	fast_intro_3			// 11
+
+s 58 Setup myBPM
+	t all	 100	intro_1
+s 59 End myBPM
