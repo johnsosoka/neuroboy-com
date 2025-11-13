@@ -11,6 +11,20 @@ export default function UgobePage() {
         Co-Founder, Chief Technology Officer & Head of Research & Development
       </p>
 
+      {/* Hero Image */}
+      <div className="max-w-5xl mx-auto mb-16">
+        <div className="aspect-[16/9] overflow-hidden rounded-xl border-2 border-memorial-gray-800 shadow-2xl">
+          <img
+            src="/images/ugobe/pleo-showcase.jpeg"
+            alt="Pleo, the autonomous robotic baby Camarasaurus dinosaur"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <p className="text-center text-sm text-memorial-gray-400 mt-4 italic">
+          Pleo - The first commercial synthetic lifeform
+        </p>
+      </div>
+
       <div className="max-w-4xl mx-auto space-y-16">
         {/* Introduction */}
         <section>
@@ -44,16 +58,6 @@ export default function UgobePage() {
               <div className="text-memorial-gray-400">Countries Reached</div>
             </div>
           </div>
-        </section>
-
-        {/* Hero Image */}
-        <section className="relative aspect-video rounded-lg overflow-hidden border border-memorial-gray-700">
-          <Image
-            src="/images/ugobe/pleo-showcase.jpeg"
-            alt="Pleo, the autonomous robotic baby Camarasaurus dinosaur"
-            fill
-            className="object-cover"
-          />
         </section>
 
         {/* Founders & Leadership */}

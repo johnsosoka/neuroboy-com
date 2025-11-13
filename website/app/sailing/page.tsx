@@ -10,6 +10,20 @@ export default function SailingPage() {
         at Long Beach Yacht Club, sailing was a lifelong passion.
       </p>
 
+      {/* Hero Image */}
+      <div className="max-w-5xl mx-auto mb-16">
+        <div className="aspect-[16/9] overflow-hidden rounded-xl border-2 border-memorial-gray-800 shadow-2xl">
+          <img
+            src="/images/personal/sailing-scenic-moment.jpg"
+            alt="John sailing on the water"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <p className="text-center text-sm text-memorial-gray-400 mt-4 italic">
+          A moment of tranquility on the water
+        </p>
+      </div>
+
       <div className="max-w-4xl mx-auto space-y-16">
         {/* Early Years */}
         <section className="border-l-4 border-memorial-accent-blue pl-6">
@@ -104,49 +118,96 @@ export default function SailingPage() {
               A collection of photographs from John's sailing adventures—capturing moments
               on the water that reflect his lifelong passion for the sport.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Sailing with Dave */}
-              <div className="group">
-                <div className="aspect-[4/3] overflow-hidden rounded-lg border border-memorial-gray-700">
-                  <img
-                    src="/images/personal/sailing-john-captain-with-dave.jpg"
-                    alt="John at the helm with Dave"
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-                <p className="text-sm text-memorial-gray-400 mt-2 text-center">
-                  John at the helm with Dave
-                </p>
-              </div>
 
-              {/* Sailing the Dinghy */}
-              <div className="group">
-                <div className="aspect-[4/3] overflow-hidden rounded-lg border border-memorial-gray-700">
-                  <img
-                    src="/images/personal/sailing-john-ding.jpg"
-                    alt="John sailing his dinghy"
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
+            {/* Long Beach Era */}
+            <div className="mb-8">
+              <h3 className="text-xl font-semibold text-memorial-accent-blue mb-4">
+                Long Beach, California
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="group">
+                  <div className="aspect-[4/3] overflow-hidden rounded-lg border border-memorial-gray-700">
+                    <img
+                      src="/images/personal/sailing-san-francisco-bay.jpeg"
+                      alt="John on a boat in San Francisco Bay"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <p className="text-sm text-memorial-gray-400 mt-2 text-center">
+                    John on San Francisco Bay
+                  </p>
                 </div>
-                <p className="text-sm text-memorial-gray-400 mt-2 text-center">
-                  John sailing his dinghy in Idaho
-                </p>
-              </div>
 
-              {/* Windsurfing with Friends */}
-              <div className="group">
-                <div className="aspect-[4/3] overflow-hidden rounded-lg border border-memorial-gray-700">
-                  <img
-                    src="/images/personal/john-friends-windsurfing.jpeg"
-                    alt="John and friends windsurfing"
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
+                <div className="group">
+                  <div className="aspect-[4/3] overflow-hidden rounded-lg border border-memorial-gray-700">
+                    <img
+                      src="/images/personal/sailing-john-captain-with-dave.jpg"
+                      alt="John at the helm with Dave"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <p className="text-sm text-memorial-gray-400 mt-2 text-center">
+                    John at the helm with Dave
+                  </p>
                 </div>
-                <p className="text-sm text-memorial-gray-400 mt-2 text-center">
-                  John and friends windsurfing
-                </p>
               </div>
             </div>
+
+            {/* Idaho Era */}
+            <div className="mb-8">
+              <h3 className="text-xl font-semibold text-memorial-accent-gold mb-4">
+                Eagle, Idaho
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="group">
+                  <div className="aspect-[4/3] overflow-hidden rounded-lg border border-memorial-gray-700">
+                    <img
+                      src="/images/personal/sailing-macgregor-25.jpg"
+                      alt="John with his MacGregor 25 sailboat"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <p className="text-sm text-memorial-gray-400 mt-2 text-center">
+                    John with his MacGregor 25 in Idaho
+                  </p>
+                </div>
+
+                <div className="group">
+                  <div className="aspect-[4/3] overflow-hidden rounded-lg border border-memorial-gray-700">
+                    <img
+                      src="/images/personal/sailing-john-ding.jpg"
+                      alt="John sailing his dinghy"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <p className="text-sm text-memorial-gray-400 mt-2 text-center">
+                    John sailing his dinghy in Idaho
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Social & Community */}
+            <div>
+              <h3 className="text-xl font-semibold text-memorial-accent-purple mb-4">
+                With Friends & Family
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="group">
+                  <div className="aspect-[4/3] overflow-hidden rounded-lg border border-memorial-gray-700">
+                    <img
+                      src="/images/personal/john-friends-windsurfing.jpeg"
+                      alt="John and friends windsurfing"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <p className="text-sm text-memorial-gray-400 mt-2 text-center">
+                    John and friends windsurfing
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <p className="text-sm text-memorial-gray-500 mt-6 text-center italic">
               More photos from John's sailing adventures will be added as they are collected from family and friends
             </p>
@@ -193,6 +254,31 @@ export default function SailingPage() {
               to his own decades of racing and cruising, sailing was more than a sport—it was a
               way of life that linked generations through shared experiences on the water.
             </p>
+          </div>
+        </section>
+
+        {/* Cross-link to Hiking & Outdoors */}
+        <section className="bg-gradient-to-r from-memorial-accent-blue/10 to-memorial-accent-purple/10 border border-memorial-accent-blue/30 rounded-lg p-8">
+          <h2 className="text-2xl font-bold mb-4 text-memorial-gray-200 text-center">
+            More of John's Passions
+          </h2>
+          <div className="text-memorial-gray-300 leading-relaxed">
+            <p className="text-center max-w-2xl mx-auto mb-4">
+              John's love for sailing was part of a broader connection to the natural world. He found
+              similar joy and challenge in hiking Idaho's mountains, backpacking through wilderness,
+              and snowshoeing to remote yurts—always moving, always exploring.
+            </p>
+            <div className="text-center">
+              <a
+                href="/hiking-outdoors"
+                className="inline-flex items-center text-memorial-accent-blue hover:text-memorial-accent-purple transition-colors"
+              >
+                <span className="text-lg font-medium">Explore John's Hiking & Outdoor Adventures</span>
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
           </div>
         </section>
 

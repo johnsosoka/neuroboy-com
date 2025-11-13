@@ -27,7 +27,7 @@ const navItems: NavItem[] = [
       { href: '/biography', label: 'Biography' },
       { href: '/timeline', label: 'Timeline' },
       { href: '/sailing', label: 'Sailing' },
-      { href: '/outdoors', label: 'Hiking & Outdoors'},
+      { href: '/hiking-outdoors', label: 'Hiking & Outdoors'},
       { href: '/art', label: 'Art & Community' },
     ],
   },
