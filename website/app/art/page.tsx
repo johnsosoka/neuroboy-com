@@ -150,7 +150,7 @@ export default function ArtPage() {
                       className="object-cover"
                     />
                   </div>
-                  <p className="text-sm text-memorial-gray-500 mt-2 text-center">The Lamp - Over 7 feet tall, 200+ pounds</p>
+                  <p className="text-sm text-memorial-gray-500 mt-2 text-center">The Lamp head mechanism, disassembled.</p>
                 </div>
               </div>
             </div>

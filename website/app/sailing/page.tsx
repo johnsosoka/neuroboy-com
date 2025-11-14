@@ -343,7 +343,7 @@ export default function SailingPage() {
                     />
                   </div>
                   <p className="text-sm text-memorial-gray-400 mt-2 text-center">
-                    John with his MacGregor 25 in Idaho
+                    John with his MacGregor 25 in Long Beach, California.
                   </p>
                 </div>
 
@@ -351,12 +351,12 @@ export default function SailingPage() {
                   <div className="aspect-[4/3] overflow-hidden rounded-lg border border-memorial-gray-700">
                     <img
                       src="/images/personal/sailing-john-ding.jpg"
-                      alt="John sailing his dinghy"
+                      alt="John sailing on dinghy"
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
                   <p className="text-sm text-memorial-gray-400 mt-2 text-center">
-                    John sailing his dinghy in Idaho
+                    John taking the dinghy around the marina
                   </p>
                 </div>
               </div>
