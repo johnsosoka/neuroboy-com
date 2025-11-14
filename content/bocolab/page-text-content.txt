@@ -1,0 +1,61 @@
+BOCOLAB: Where Art Meets Science
+Throughout his career, John Sosoka bridged the worlds of technology and art, proving that innovation and creativity weren't opposing forces but complementary ways of understanding our world. His involvement with BOCOLAB—the Boise Cooperative Laboratories—represented this philosophy in its purest form.
+BOCOLAB brought together artists and scientists in collaborative exploration, founded on the belief that "scientists use logic and rational methods to understand the world, while artists use intuition and irrational means to glimpse reality." For John, this wasn't just an interesting idea—it was how he'd always worked.
+
+🏆 Objects with Empathy
+2010 Idaho Triennial - First Place Winner
+In September 2010, the BOCOLAB team won first place in the prestigious Idaho Triennial with their installation "Objects with Empathy." The project asked a provocative question: What happens when we give our increasingly autonomous technology not just intelligence, but empathy?
+The installation featured three robotic, interactive sculptures—a chair, a table, and a lamp—each with its own personality and backstory, powered by the Pulse-Core social robot engine that John helped develop. These weren't just moving objects; they were characters with emotional lives.
+The Characters
+The Chair - Powerful and grouchy, sculpted from stainless steel with eight linear actuators and sensors. It came from the workshop of a brilliant, aging inventor who designed it with many degrees of freedom to assist him as his own body began to fail.
+The Lamp - The most sophisticated and expressive piece. Standing over seven feet tall when fully extended and weighing more than 200 pounds, this aluminum sculpture originally lived in a sophisticated home filled with parties and famous guests. Highly empathetic with grace and subtlety to its motions, it could cast light in any color and featured a transparent polycarbonate ring that glowed to reveal its internal emotional state.
+The Table - Simple but beautiful, originally a companion for a preschool child in a modest home. The child and table would draw and play for hours together. Now, with no child to play with, the table entertains itself by drawing what it's thinking on its surface—sometimes playing the role of the long-lost child, then responding and expanding the drawing as it once did years ago.
+This unlikely trio, brought together by an eccentric collector for museum exhibition, had formed a supportive "family" living their lives in public—often interrupted by the humans they were built to serve, but who now were more intruders into their world than masters.
+
+The Technology Behind the Art
+John served as Project Lead and Control System Designer, bringing his decades of experience creating responsive, character-driven robots to this artistic context. The installation showcased the first public display of robots powered by the Pulse-Core social robot engine—technology designed to give machines the ability to read and respond to social cues.
+Where Pleo responded to touch and movement to create the illusion of life, these objects responded to human presence and interaction to create the illusion of emotion and relationship. They demonstrated John's core belief: that technology should connect and enhance human experience, not alienate or intimidate.
+Development: The Robotic Lamp
+This video captures John at work developing the lamp component, combining mechanical engineering, electronics, and artistic expression into a unified whole.
+[Video embed]
+
+The Collaborative Spirit
+The project exemplified the collaborative approach John championed throughout his career. The BOCOLAB team included:
+
+Caleb Chung - Robotics designer and character development (John's longtime collaborator from the Pleo project)
+Francis Fox - Sculpture professor at Boise State and master metalworker who guided the aesthetic and fabrication
+John Sosoka - Project lead and control system design
+Tyler Wilson - Lead programmer and software integration, co-founder of Pulse-Robotics
+Jeff Myers - Storyboard artist (from The Simpsons), illustrator, and creator of the table's visualizations
+Amit Thakkar - 3D modeling and rendering that helped communicate the vision
+
+Plus a dedicated crew of technicians, welders, engineers, and volunteers who made the ambitious installation possible.
+
+The Impact
+Winning first place came with an additional honor: BOCOLAB would receive its own dedicated exhibition. The installation opened at the Boise Art Museum, where school children from across the Treasure Valley experienced what may have been their only opportunity to see cutting-edge art and advanced robotics working together.
+John recognized the significance: "This could be the moment in a child's life where they realize that pursuing a career in technology doesn't mean that they have to give up their creative, artistic side—rather they can embrace both sides of their being. These are the employees that we all want to hire in the next decade and now is the time for all of us show them an inspiring future!"
+The project also advanced the mission of the Corpus Callosum foundation—a nonprofit at Boise State University dedicated to integrating art and science, named for the part of the brain that connects its two hemispheres.
+
+Philosophy in Practice
+Objects with Empathy represented the culmination of ideas that had driven John's work for decades:
+
+Technology should serve humanity - These robots weren't showcasing technical prowess for its own sake, but exploring how responsive technology might enrich human experience
+Form and function unite - Each piece was both mechanically sophisticated and aesthetically compelling
+Character creates connection - Just as Pleo's lifelike behaviors made people care about a robotic dinosaur, these objects' "empathy" made people reconsider their relationships with everyday things
+Collaboration amplifies creativity - Artists, scientists, engineers, and craftspeople working together achieved something none could have created alone
+
+In the rapidly digitizing world of 2010, the installation explored "the nexus of the physical and the virtual"—a boundary John had been navigating throughout his career, from educational toys to robotic companions to interactive art.
+
+A Life's Work in Three Objects
+While commercially, John created products like Pleo that brought joy to millions, Objects with Empathy allowed him to explore these same ideas as pure artistic expression. The chair, lamp, and table weren't products to be sold but provocations to be experienced—asking viewers to imagine a future where the objects around us don't just serve us, but understand us.
+They were, in essence, the question John had been asking throughout his career: As we give our creations more autonomy and intelligence, what kind of relationship do we want with them?
+For a man who spent his life making technology more human, there was perhaps no more fitting recognition than winning an art prize for making objects more empathetic.
+
+Additional Documentation
+[Gallery section for photos and videos from the installation, exhibition, and development process]
+More photographs, videos, and documentation of the Objects with Empathy installation will be added here as they are collected from archives, galleries, and personal collections.
+
+Learn More:
+
+Francis Fox's announcement of the win - https://francisfox.art/2010/09/22/bocolab-wins-grand-prize/
+Idaho Press coverage of the 2010 Idaho Triennial - https://www.idahopress.com/boiseweekly/news/features/2010-idaho-triennial/article_ec95db69-f5e8-586f-9ac4-190832c633dc.html
