@@ -5,8 +5,22 @@ export default function DavidsonPage() {
         Davidson & Associates
       </h1>
       <p className="text-xl text-memorial-gray-400 mb-12">
-        Chief Technology Officer | Educational Software Pioneer
+        Chief Technology Officer | Educational Software Pioneer | 1980s-1996
       </p>
+
+      {/* Hero Image - Math Blaster as representation */}
+      <div className="max-w-5xl mx-auto mb-16">
+        <div className="aspect-[16/9] overflow-hidden rounded-xl border-2 border-memorial-gray-800 shadow-2xl">
+          <img
+            src="/images/products/math-blaster.jpg"
+            alt="Math Blaster - Davidson & Associates flagship educational software"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <p className="text-center text-sm text-memorial-gray-400 mt-4 italic">
+          Math Blaster - The flagship product that revolutionized educational software
+        </p>
+      </div>
 
       <div className="max-w-4xl mx-auto space-y-12">
         <section>

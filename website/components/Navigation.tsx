@@ -34,7 +34,7 @@ const navItems: NavItem[] = [
     type: 'dropdown',
     label: 'His Work',
     items: [
-      { href: '/tag', label: 'TAG'},
+      // { href: '/tag', label: 'TAG'}, TODO - More research for TAG
       { href: '/davidson', label: 'Davidson & Associates' },
       { href: '/neurosmith', label: 'Neurosmith' },
       { href: '/ugobe', label: 'Ugobe' },
@@ -82,7 +82,7 @@ export default function Navigation() {
             href="/"
             className="text-xl font-bold text-memorial-gray-50 hover:text-memorial-accent-blue transition-colors"
           >
-            John R. Sosoka II
+            John R. Sosoka Jr
           </Link>
 
           {/* Desktop Navigation */}

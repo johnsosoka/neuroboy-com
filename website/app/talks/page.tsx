@@ -28,7 +28,7 @@ export default function TalksPage() {
           />
         </div>
         <p className="text-center text-sm text-memorial-gray-400 mt-4 italic">
-          Sharing knowledge and inspiring the next generation
+          John speaking at Stanford University in 2009
         </p>
       </div>
 

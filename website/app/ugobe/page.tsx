@@ -30,8 +30,8 @@ export default function UgobePage() {
         <section>
           <div className="text-lg text-memorial-gray-300 leading-relaxed space-y-4">
             <p>
-              Following his success at Neurosmith, John joined forces with inventor <strong>Caleb Chung</strong> (co-creator of Furby, which sold over 50 million units worldwide)
-              and <strong>Bob Christopher</strong> to co-found Ugobe in 2001. As Co-founder, Chief Technology Officer, and head of Research & Development, John led the technical
+              Following his work at Neurosmith, John joined forces with inventor <strong>Caleb Chung</strong> (co-creator of Furby, which sold over 50 million units worldwide)
+              and <strong>Bob Christopher</strong> to co-found Ugobe. As Co-founder, Chief Technology Officer, and head of Research & Development, John led the technical
               development of Pleo, an autonomous robotic baby Camarasaurus dinosaur that would become one of the
               most sophisticated consumer robots of its era.
             </p>
@@ -39,6 +39,36 @@ export default function UgobePage() {
               Bob Christopher served as CEO and raised over <strong>$26 million in funding</strong> for the ambitious venture. The company was initially based in Emeryville, California,
               with a design and R&D facility in Eagle, Idaho, where John and his team pushed the boundaries of what was possible in consumer robotics.
             </p>
+          </div>
+        </section>
+
+        {/* Featured Video - PARC Forum */}
+        <section>
+          <h2 className="text-3xl font-bold mb-6 text-memorial-accent-blue">
+            The Evolution of the Pleo Puzzle
+          </h2>
+          <div className="bg-memorial-gray-900/50 border border-memorial-gray-800 rounded-lg p-6">
+            <div className="mb-4">
+              <div className="flex flex-wrap gap-3 text-sm text-memorial-gray-500 mb-3">
+                <span>📍 Ugobe R&D Labs</span>
+                <span>🤖 Technical Deep Dive</span>
+              </div>
+              <p className="text-memorial-gray-400 text-sm">
+                A brief clip where John walks through some of the engineering challenges of creating Pleo and the cascading
+                effects of each design choice.
+              </p>
+            </div>
+            <div className="bg-memorial-gray-900 rounded-lg overflow-hidden border border-memorial-gray-700">
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/3iMN41JygPE?start=7"
+                  title="The Evolution of the Pleo Puzzle"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </div>
           </div>
         </section>
 
@@ -182,6 +212,34 @@ export default function UgobePage() {
           </div>
         </section>
 
+      {/* Life OS Platform */}
+      <section>
+          <h2 className="text-3xl font-bold mb-6 text-memorial-accent-blue">
+              Life OS: The Software Behind the Magic
+          </h2>
+          <div className="text-lg text-memorial-gray-300 leading-relaxed space-y-4">
+              <p>
+                  The <strong>Life OS</strong> was Ugobe's proprietary software platform that enabled Pleo's autonomous behavior, adaptive learning, and emotional responses.
+                  The system used <strong>PAWN scripting language</strong> running on a virtual machine, allowing developers to modify behaviors and create custom applications.
+              </p>
+              <div className="bg-memorial-gray-900/50 border-l-4 border-memorial-accent-blue p-6 rounded-r-lg">
+                  <h3 className="text-xl font-semibold text-memorial-gray-50 mb-3">Life OS 1.1 Update (March 2008)</h3>
+                  <p className="text-memorial-gray-300 mb-3">
+                      Ugobe released software updates that expanded Pleo's capabilities:
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 text-memorial-gray-300">
+                      <li>Sitting behavior</li>
+                      <li>Singing and vocalizations</li>
+                      <li>Calling for attention</li>
+                      <li>Getting sick (requiring care)</li>
+                  </ul>
+              </div>
+              <p>
+                  The Life OS platform represented a significant achievement in accessible robotics programming, enabling a community of developers
+                  and hobbyists to extend Pleo's behaviors beyond its factory programming.
+              </p>
+          </div>
+      </section>
         {/* Inside Pleo: Engineering Marvel */}
         <section>
           <h2 className="text-3xl font-bold mb-6 text-memorial-accent-blue">
@@ -236,35 +294,6 @@ export default function UgobePage() {
                 <p className="text-white text-sm font-medium">iFixit Teardown View</p>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Life OS Platform */}
-        <section>
-          <h2 className="text-3xl font-bold mb-6 text-memorial-accent-blue">
-            Life OS: The Software Behind the Magic
-          </h2>
-          <div className="text-lg text-memorial-gray-300 leading-relaxed space-y-4">
-            <p>
-              The <strong>Life OS</strong> was Ugobe's proprietary software platform that enabled Pleo's autonomous behavior, adaptive learning, and emotional responses.
-              The system used <strong>PAWN scripting language</strong> running on a virtual machine, allowing developers to modify behaviors and create custom applications.
-            </p>
-            <div className="bg-memorial-gray-900/50 border-l-4 border-memorial-accent-blue p-6 rounded-r-lg">
-              <h3 className="text-xl font-semibold text-memorial-gray-50 mb-3">Life OS 1.1 Update (March 2008)</h3>
-              <p className="text-memorial-gray-300 mb-3">
-                Ugobe released software updates that expanded Pleo's capabilities:
-              </p>
-              <ul className="list-disc list-inside space-y-2 text-memorial-gray-300">
-                <li>Sitting behavior</li>
-                <li>Singing and vocalizations</li>
-                <li>Calling for attention</li>
-                <li>Getting sick (requiring care)</li>
-              </ul>
-            </div>
-            <p>
-              The Life OS platform represented a significant achievement in accessible robotics programming, enabling a community of developers
-              and hobbyists to extend Pleo's behaviors beyond its factory programming.
-            </p>
           </div>
         </section>
 
@@ -394,106 +423,6 @@ export default function UgobePage() {
           </div>
         </section>
 
-        {/* Timeline */}
-        <section>
-          <h2 className="text-3xl font-bold mb-6 text-memorial-accent-blue">
-            Pleo Timeline
-          </h2>
-          <div className="border-l-2 border-memorial-accent-blue pl-6 space-y-6">
-            <div>
-              <h3 className="text-xl font-semibold text-memorial-gray-50 mb-2">
-                2001
-              </h3>
-              <p className="text-memorial-gray-300">
-                Ugobe founded (initially as Vernier Networks) by Caleb Chung, Bob Christopher, and John Sosoka.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-memorial-gray-50 mb-2">
-                February 7, 2006
-              </h3>
-              <p className="text-memorial-gray-300">
-                Pleo unveiled at the DEMO Conference in Scottsdale, Arizona, winning INNY and DEMOgod awards and generating immediate excitement
-                in the robotics and consumer electronics industries.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-memorial-gray-50 mb-2">
-                November 2006
-              </h3>
-              <p className="text-memorial-gray-300">
-                TIME Magazine names Pleo one of the Best Inventions of 2006 as "The Doting Dinosaur."
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-memorial-gray-50 mb-2">
-                December 5, 2007
-              </h3>
-              <p className="text-memorial-gray-300">
-                Pleo officially launched to consumers at $350, over a year later than originally announced due to manufacturing complexities.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-memorial-gray-50 mb-2">
-                March 2008
-              </h3>
-              <p className="text-memorial-gray-300">
-                Life OS 1.1 released, adding new behaviors like sitting, singing, calling for attention, and getting sick.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-memorial-gray-50 mb-2">
-                October 2008
-              </h3>
-              <p className="text-memorial-gray-300">
-                Ugobe consolidates all operations to Eagle, Idaho, eliminating California headquarters to reduce overhead during economic crisis.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-memorial-gray-50 mb-2">
-                November-December 2008
-              </h3>
-              <p className="text-memorial-gray-300">
-                Derek Dotson returns to help save the company. Doug Swanson brought in as CEO. Most employees laid off. Bob Christopher resigns as CEO.
-                Entire board of directors resigns, returning control to co-founders.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-memorial-gray-50 mb-2">
-                April 17, 2009
-              </h3>
-              <p className="text-memorial-gray-300">
-                Ugobe files for Chapter 7 bankruptcy, listing $1.6 million in assets and $3.6 million in liabilities.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-memorial-gray-50 mb-2">
-                May 21, 2009
-              </h3>
-              <p className="text-memorial-gray-300">
-                Jetta Company Limited acquires all Ugobe intellectual property and assets at bankruptcy auction.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-memorial-gray-50 mb-2">
-                July 2009
-              </h3>
-              <p className="text-memorial-gray-300">
-                Jetta establishes Innvo Labs Corporation to manage the Pleo brand. Derek Dotson becomes COO.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-memorial-gray-50 mb-2">
-                December 2011
-              </h3>
-              <p className="text-memorial-gray-300">
-                Pleo rb (ReBorn) launched with enhanced features including voice recognition, internal clock, RFID learning stones,
-                and multiple color variations at $469.
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* The Perfect Storm */}
         <section>
           <h2 className="text-3xl font-bold mb-6 text-memorial-accent-blue">
@@ -548,46 +477,46 @@ export default function UgobePage() {
           </div>
         </section>
 
-        {/* Pleo Lives On */}
-        <section>
-          <h2 className="text-3xl font-bold mb-6 text-memorial-accent-blue">
-            Pleo Lives On: The Resurrection
-          </h2>
-          <div className="text-lg text-memorial-gray-300 leading-relaxed space-y-4">
-            <p>
-              On May 21, 2009, at the bankruptcy auction, <strong>Jetta Company Limited</strong>—the Hong Kong-based manufacturer that had produced Pleo for Ugobe—acquired
-              all intellectual property rights and assets. Jetta, established in 1977 with 32 years of manufacturing experience, committed to continuing the Pleo line.
-            </p>
-            <p>
-              In July 2009, Jetta established <strong>Innvo Labs Corporation</strong> as a division to manage the Pleo brand. Derek Dotson, one of Ugobe's original founders,
-              returned as COO of Innvo Labs, bringing continuity of vision to the product's next chapter.
-            </p>
-            <div className="bg-memorial-gray-900/50 border border-memorial-gray-800 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-memorial-gray-50 mb-4">Pleo rb (ReBorn) - December 2011</h3>
-              <p className="text-memorial-gray-300 mb-4">
-                Innvo Labs launched the next generation at $469, pushing the original platform to its technical limits with enhanced features:
-              </p>
-              <div className="grid md:grid-cols-2 gap-4">
-                <ul className="list-disc list-inside space-y-2 text-memorial-gray-300">
-                  <li>Voice recognition system (works with any language)</li>
-                  <li>Internal clock with time-of-day awareness</li>
-                  <li>Temperature sensors</li>
-                  <li>RFID-based "learning stone" technology</li>
-                </ul>
-                <ul className="list-disc list-inside space-y-2 text-memorial-gray-300">
-                  <li>More touch sensors</li>
-                  <li>Improved durability</li>
-                  <li>Personality pre-setting (male vs. female tendencies)</li>
-                  <li>Multiple color variations (green, pink, blue)</li>
-                </ul>
-              </div>
-            </div>
-            <p>
-              Pleo remains available through Innvo Labs' PLEOworld website and continues to have devoted fans. The product is studied by researchers
-              exploring human-robot interaction and stands as a testament to the pioneering work John and his team accomplished.
-            </p>
-          </div>
-        </section>
+        {/*/!* Pleo Lives On *!/*/}
+        {/*<section>*/}
+        {/*  <h2 className="text-3xl font-bold mb-6 text-memorial-accent-blue">*/}
+        {/*    Pleo Lives On: The Resurrection*/}
+        {/*  </h2>*/}
+        {/*  <div className="text-lg text-memorial-gray-300 leading-relaxed space-y-4">*/}
+        {/*    <p>*/}
+        {/*      On May 21, 2009, at the bankruptcy auction, <strong>Jetta Company Limited</strong>—the Hong Kong-based manufacturer that had produced Pleo for Ugobe—acquired*/}
+        {/*      all intellectual property rights and assets. Jetta, established in 1977 with 32 years of manufacturing experience, committed to continuing the Pleo line.*/}
+        {/*    </p>*/}
+        {/*    <p>*/}
+        {/*      In July 2009, Jetta established <strong>Innvo Labs Corporation</strong> as a division to manage the Pleo brand. Derek Dotson, one of Ugobe's original founders,*/}
+        {/*      returned as COO of Innvo Labs, bringing continuity of vision to the product's next chapter.*/}
+        {/*    </p>*/}
+        {/*    <div className="bg-memorial-gray-900/50 border border-memorial-gray-800 rounded-lg p-6">*/}
+        {/*      <h3 className="text-xl font-semibold text-memorial-gray-50 mb-4">Pleo rb (ReBorn) - December 2011</h3>*/}
+        {/*      <p className="text-memorial-gray-300 mb-4">*/}
+        {/*        Innvo Labs launched the next generation at $469, pushing the original platform to its technical limits with enhanced features:*/}
+        {/*      </p>*/}
+        {/*      <div className="grid md:grid-cols-2 gap-4">*/}
+        {/*        <ul className="list-disc list-inside space-y-2 text-memorial-gray-300">*/}
+        {/*          <li>Voice recognition system (works with any language)</li>*/}
+        {/*          <li>Internal clock with time-of-day awareness</li>*/}
+        {/*          <li>Temperature sensors</li>*/}
+        {/*          <li>RFID-based "learning stone" technology</li>*/}
+        {/*        </ul>*/}
+        {/*        <ul className="list-disc list-inside space-y-2 text-memorial-gray-300">*/}
+        {/*          <li>More touch sensors</li>*/}
+        {/*          <li>Improved durability</li>*/}
+        {/*          <li>Personality pre-setting (male vs. female tendencies)</li>*/}
+        {/*          <li>Multiple color variations (green, pink, blue)</li>*/}
+        {/*        </ul>*/}
+        {/*      </div>*/}
+        {/*    </div>*/}
+        {/*    <p>*/}
+        {/*      Pleo remains available through Innvo Labs' PLEOworld website and continues to have devoted fans. The product is studied by researchers*/}
+        {/*      exploring human-robot interaction and stands as a testament to the pioneering work John and his team accomplished.*/}
+        {/*    </p>*/}
+        {/*  </div>*/}
+        {/*</section>*/}
 
         {/* Speaking Engagements */}
         <section>
@@ -615,27 +544,53 @@ export default function UgobePage() {
           </p>
 
           <div className="space-y-8">
-            {/* PARC Forum - Evolution of Pleo Puzzle */}
+            {/* Pleo on Today Show */}
             <div className="bg-memorial-gray-900/50 border border-memorial-gray-800 rounded-lg p-6">
               <div className="mb-4">
                 <h3 className="text-xl font-bold text-memorial-gray-50 mb-2">
-                  The Evolution of the Pleo Puzzle
+                  Pleo on the Today Show
                 </h3>
                 <div className="flex flex-wrap gap-3 text-sm text-memorial-gray-500">
-                  <span>📍 PARC Forum</span>
-                  <span>🤖 Technical Deep Dive</span>
+                  <span>📺 NBC Today Show</span>
+                  <span>🎉 January 1, 2008 (New Year's Edition)</span>
                 </div>
                 <p className="text-memorial-gray-400 mt-2 text-sm">
-                  John walks through the engineering challenges of creating Pleo, from 38 sensors to 14 motors
-                  to the Life OS platform. A masterclass in making complex technical concepts accessible.
+                  Pleo makes a memorable appearance on NBC's Today Show, introducing millions of viewers to the robotic dinosaur.
                 </p>
               </div>
               <div className="bg-memorial-gray-900 rounded-lg overflow-hidden border border-memorial-gray-700">
                 <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
                   <iframe
                     className="absolute top-0 left-0 w-full h-full"
-                    src="https://www.youtube.com/embed/3iMN41JygPE?start=7"
-                    title="The Evolution of the Pleo Puzzle"
+                    src="https://www.youtube.com/embed/tFiYZJt9qRw"
+                    title="Pleo on the Today Show"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Caleb's Tour of Ugobe Labs */}
+            <div className="bg-memorial-gray-900/50 border border-memorial-gray-800 rounded-lg p-6">
+              <div className="mb-4">
+                <h3 className="text-xl font-bold text-memorial-gray-50 mb-2">
+                  Caleb's Tour of Ugobe Labs
+                </h3>
+                <div className="flex flex-wrap gap-3 text-sm text-memorial-gray-500">
+                  <span>🏢 Behind the Scenes</span>
+                  <span>👨‍🔬 Ugobe Labs</span>
+                </div>
+                <p className="text-memorial-gray-400 mt-2 text-sm">
+                  Co-founder Caleb Chung takes viewers on an exclusive tour of Ugobe Labs, showcasing the development process and innovation behind Pleo.
+                </p>
+              </div>
+              <div className="bg-memorial-gray-900 rounded-lg overflow-hidden border border-memorial-gray-700">
+                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/ZiFCCa5iYRQ"
+                    title="Caleb's Tour of Ugobe Labs"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   />

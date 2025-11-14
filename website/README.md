@@ -1,6 +1,6 @@
-# John R. Sosoka II Memorial Website
+# John R. Sosoka Jr Memorial Website
 
-A memorial website built with Next.js, celebrating the life and legacy of John R. Sosoka II (1953-2021).
+A memorial website built with Next.js, celebrating the life and legacy of John R. Sosoka Jr (1953-2021).
 
 ## Overview
 

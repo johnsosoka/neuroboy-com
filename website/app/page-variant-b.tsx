@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Award, Box, Clock } from 'lucide-react'
 
-export default function Home() {
+export default function HomeVariantB() {
   return (
     <div className="container mx-auto px-4 py-16">
       {/* Hero Section with Name/Title */}
@@ -22,7 +22,7 @@ export default function Home() {
       <section className="max-w-6xl mx-auto mb-16">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left: Memorial Photo */}
-          <div>
+          <div className="order-2 md:order-1">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-memorial-accent-blue/20 to-memorial-accent-purple/20 rounded-lg blur-xl"></div>
               <div className="relative">
@@ -42,18 +42,13 @@ export default function Home() {
           </div>
 
           {/* Right: Navigation Grid */}
-          <div className="space-y-6">
+          <div className="order-1 md:order-2 space-y-6">
             <div className="text-lg text-memorial-gray-300 leading-relaxed mb-8">
-                <p className="text-xl text-memorial-gray-400 mb-12 max-w-3xl leading-relaxed space-y-4">
-                    A visionary technologist and a maker’s maker, John bridged art, science, and engineering with uncommon curiosity and care.
-                    <br /><br />
-                    From developing early graphical systems and educational software to pioneering child-directed learning toys at Neurosmith and creating the lifelike Pleo dinosaur at Ugobe, his work shaped how people learn, play, and connect with technology.
-                    <br /><br />
-                    His products and innovations earned numerous awards and continue to touch countless engineers, builders, and everyday lives around the world.
-                </p>
-
-
-
+              <p>
+                A visionary technologist who believed in making technology accessible and meaningful.
+                From pioneering robotic toys at Neurosmith to creating the beloved Pleo dinosaur at Ugobe,
+                his work touched countless lives and inspired a generation of engineers and creators.
+              </p>
             </div>
 
             <div className="space-y-4">
@@ -66,7 +61,7 @@ export default function Home() {
               />
 
               <NavigationGridItem
-                href="/press"
+                href="/press-and-awards"
                 icon={<Award className="w-6 h-6" />}
                 title="Press & Awards"
                 description="Recognition from TIME Magazine to Toy of the Year Awards"

@@ -2,7 +2,7 @@ const timelineEvents = [
     {
         "year": "1953",
         "title": "Birth",
-        "description": "John R. Sosoka II is born on June 21st, beginning a life of invention, curiosity, and kindness."
+        "description": "John R. Sosoka Jr is born on June 21st, beginning a life of invention, curiosity, and kindness."
     },
     {
         "year": "1950s–1970s",

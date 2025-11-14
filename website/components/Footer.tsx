@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="text-center">
           <p className="text-memorial-gray-400 mb-2">
-            In loving memory of John R. Sosoka II
+            In loving memory of John R. Sosoka Jr
           </p>
           <p className="text-memorial-gray-500 text-sm">
             1953 - 2021

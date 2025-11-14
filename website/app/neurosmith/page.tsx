@@ -11,6 +11,20 @@ export default function NeuromithPage() {
         Co-Founder & CTO | Interactive Learning Toys | 1997-2004
       </p>
 
+      {/* Hero Image - Music Blocks as flagship product */}
+      <div className="max-w-5xl mx-auto mb-16">
+        <div className="aspect-[16/9] overflow-hidden rounded-xl border-2 border-memorial-gray-800 shadow-2xl">
+          <img
+            src="/images/neurosmith/music-blocks-showcase.jpg"
+            alt="Neurosmith Music Blocks - Award-winning interactive learning toy"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <p className="text-center text-sm text-memorial-gray-400 mt-4 italic">
+          Music Blocks - The breakthrough toy that launched Neurosmith to success
+        </p>
+      </div>
+
       <div className="max-w-4xl mx-auto space-y-16">
         {/* Overview Stats */}
         <section className="bg-memorial-gray-900/50 border border-memorial-gray-800 rounded-lg p-8">

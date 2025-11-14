@@ -10,8 +10,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'John R. Sosoka II - Memorial',
-  description: 'Memorial website for John R. Sosoka II (1953-2021) - Pioneer, Technologist, Mentor, Neuroboy',
+  title: 'John R. Sosoka Jr - Memorial',
+  description: 'Memorial website for John R. Sosoka Jr (1953-2021) - Pioneer, Technologist, Mentor, Neuroboy',
   keywords: ['John Sosoka', 'Neuroboy', 'Pleo', 'Ugobe', 'Neurosmith', 'Robotics', 'Memorial'],
 }
 

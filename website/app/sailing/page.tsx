@@ -4,14 +4,11 @@ export default function SailingPage() {
       <h1 className="text-5xl md:text-6xl font-bold mb-6 text-memorial-gray-50">
         Sailing
       </h1>
-      <p className="text-xl text-memorial-gray-400 mb-12 max-w-3xl">
-        Beyond his groundbreaking work in technology and robotics, John was an accomplished sailor
-        who found something essential on the water—a place where strategy met instinct, where careful
-        planning danced with spontaneous adaptation, and where the complexities of modern life gave way
-        to the elemental simplicity of wind, water, and sail. From learning the ropes with his uncle
-        on <em>Gracie</em> to racing high-performance dinghies and competing in the Long Beach racing
-        circuit, sailing wasn't just a hobby—it was a lifelong passion that shaped how he saw the world.
-      </p>
+        <p className="text-xl text-memorial-gray-400 mb-12 max-w-3xl">
+            Beyond his groundbreaking work in technology and robotics, John was an accomplished sailor who found clarity on the water—where strategy met instinct and complexity gave way to the elemental simplicity of wind, water, and sail. From learning to sail offshore with his uncle John Howell and racing in the Ensenada International Yacht Race to skimming across mountain lakes on a 14-foot catamaran, sailing was a lifelong passion that shaped how he saw the world.
+        </p>
+
+
 
       {/* Hero Image */}
       <div className="max-w-5xl mx-auto mb-16">

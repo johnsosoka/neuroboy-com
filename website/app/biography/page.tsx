@@ -12,7 +12,7 @@ export default function Biography() {
         </h2>
         <div className="text-memorial-gray-300 leading-relaxed space-y-4">
           <p>
-            John R. Sosoka II was born on June 21, 1953, growing up during a transformative era
+            John R. Sosoka Jr was born on June 21, 1953, growing up during a transformative era
             of technological advancement. From an early age, he demonstrated a natural
             curiosity about how things worked, often taking apart household electronics
             to understand their inner workings.
@@ -342,7 +342,7 @@ export default function Biography() {
             brought, John continued to inspire those around him with his courage and grace.
           </p>
           <p>
-            John R. Sosoka II passed away on July 23, 2021, in Eagle, Idaho, at the age of 68.
+            John R. Sosoka Jr passed away on July 23, 2021, in Eagle, Idaho, at the age of 68.
             He left behind a profound legacy in educational technology, interactive toys, and
             robotics. His contributions fundamentally shaped how children learn through play
             and advanced the field of companion robotics.
