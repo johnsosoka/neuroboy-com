@@ -47,7 +47,7 @@ export default function Home() {
                 <p className="text-xl text-memorial-gray-400 mb-12 max-w-3xl leading-relaxed space-y-4">
                     A visionary technologist and a maker’s maker, John bridged art, science, and engineering with uncommon curiosity and care.
                     <br /><br />
-                    From developing early graphical systems and educational software to pioneering child-directed learning toys at Neurosmith and creating the lifelike Pleo dinosaur at Ugobe, his work shaped how people learn, play, and connect with technology.
+                    From achieving video streaming on an i386 in the early 90s to pioneering child-directed learning toys at Neurosmith and creating the lifelike Pleo dinosaur at Ugobe, his work shaped how people learn, play, and connect with technology.
                     <br /><br />
                     His products and innovations earned numerous awards and continue to touch countless engineers, builders, and everyday lives around the world.
                 </p>
@@ -61,7 +61,7 @@ export default function Home() {
                 href="/gallery/products"
                 icon={<Box className="w-6 h-6" />}
                 title="Product Gallery"
-                description="Explore the innovative products from Math Blaster to Pleo"
+                description="Explore the innovative products John helped build from Math Blaster to Pleo"
                 color="blue"
               />
 
@@ -77,7 +77,7 @@ export default function Home() {
                 href="/timeline"
                 icon={<Clock className="w-6 h-6" />}
                 title="Timeline"
-                description="Key milestones from Davidson & Associates to Ugobe"
+                description="Key milestones from founding the Technology Application Group to Ugobe and beyond"
                 color="gold"
               />
             </div>
